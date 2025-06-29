@@ -1,5 +1,6 @@
-import { type Metadata } from "next";
+
 import React, { Suspense } from "react";
+import type { Metadata } from "next";
 import PostDetails from "@/components/PostDetails/PostDetails";
 import LoadingPage from "@/elements/LoadingPage/LoadingPage";
 
