@@ -1,39 +1,36 @@
-import PostDetails from "@/components/PostDetails/PostDetails";
-import LoadingPage from "@/elements/LoadingPage/LoadingPage";
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
+import PostDetails from "@/components/PostDetails/PostDetails";
+import LoadingPage from "@/elements/LoadingPage/LoadingPage";
 
-// Only generateMetadata is async
+// ===== Metadata Generator =====
 export async function generateMetadata({ params }: { params: { post: string } }): Promise<Metadata> {
   const postId = params.post;
-  
+
   try {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
-    if (!response.ok) {
-      return {
-        title: "Post Not Found",
-        description: "The requested blog post could not be found.",
-      };
-    }
-    
+    if (!response.ok) throw new Error("Failed to fetch post");
+
     const post = await response.json();
-    
+
+    const description = post.body.substring(0, 160) + "...";
+
     return {
       title: post.title,
-      description: post.body.substring(0, 160) + "...",
+      description,
       keywords: ["blog post", "article", post.title.toLowerCase()],
       openGraph: {
         title: post.title,
-        description: post.body.substring(0, 160) + "...",
+        description,
         url: `https://myblog.vercel.app/blog/${postId}`,
-        type: 'article',
+        type: "article",
         publishedTime: new Date().toISOString(),
-        authors: ['Abbass Khalid'],
+        authors: ["Abbass Khalid"],
       },
       twitter: {
-        card: 'summary',
+        card: "summary",
         title: post.title,
-        description: post.body.substring(0, 160) + "...",
+        description,
       },
     };
   } catch {
@@ -44,13 +41,14 @@ export async function generateMetadata({ params }: { params: { post: string } })
   }
 }
 
-export default function Page({ params }: { params: { post: string } }) {
-  const myPostId = params.post;
-  const loading = (<LoadingPage />);
+// ===== Page Component =====
+export default function PostPage({ params }: { params: { post: string } }) {
+  const postId = Number(params.post);
+
   return (
     <div>
-      <Suspense fallback={loading}>
-        <PostDetails myPostId={Number(myPostId)} />
+      <Suspense fallback={<LoadingPage />}>
+        <PostDetails myPostId={postId} />
       </Suspense>
     </div>
   );
