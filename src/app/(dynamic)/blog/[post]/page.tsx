@@ -40,13 +40,7 @@ export async function generateMetadata(
   }
 }
 
-type PageProps = {
-  params: {
-    post: string;
-  };
-};
-
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: { post: string } }) {
   const postId = Number(params.post);
   return (
     <div>
