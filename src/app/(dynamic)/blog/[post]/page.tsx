@@ -1,4 +1,3 @@
-
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import PostDetails from "@/components/PostDetails/PostDetails";
@@ -15,10 +14,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   try {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
-    if (!response.ok) throw new Error("Failed to fetch post");
+    if (!response.ok) throw new Error("Post not found");
 
     const post = await response.json();
-
     const description = post.body.substring(0, 160) + "...";
 
     return {
@@ -46,7 +44,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 }
-
 export default function PostPage({ params }: PageProps) {
   const postId = Number(params.post);
 
