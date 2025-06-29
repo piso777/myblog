@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import PostDetails from "../../../../components/PostDetails/PostDetails";
 
@@ -5,16 +6,20 @@ export async function generateMetadata(
   { params }: { params: { post: string } }
 ): Promise<Metadata> {
   const postId = params.post;
+
   try {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+
     if (!response.ok) {
       return {
         title: "Post Not Found",
         description: "The requested blog post could not be loaded.",
       };
     }
+
     const post = await response.json();
     const description = post.body.substring(0, 160) + "...";
+
     return {
       title: post.title,
       description,
@@ -42,6 +47,7 @@ export async function generateMetadata(
 
 export default function Page({ params }: { params: { post: string } }) {
   const postId = Number(params.post);
+
   return (
     <div>
       <PostDetails myPostId={postId} />
