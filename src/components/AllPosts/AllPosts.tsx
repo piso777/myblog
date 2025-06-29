@@ -34,7 +34,7 @@ const AllPosts = ({ allPosts }: Props) => {
         {currentPosts.map((post) => (
           <Link
             key={post.id}
-            href={`/blog?page=${currentPage}#post-${post.id}`}
+            href={`/blog/${post.id}`}
             className="text-justify w-[30%] my-8 flex flex-col hover:scale-105 transition-all duration-300 border-2 border-b-blue-300 rounded-2xl p-6"
           >
             <h2 className="mt-4 text-2xl font-bold text-white">{post.title}</h2>
