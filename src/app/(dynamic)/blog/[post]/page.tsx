@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PostDetails from "@/components/PostDetails/PostDetails";
+
 type PageProps = {
   params: {
     post: string;
