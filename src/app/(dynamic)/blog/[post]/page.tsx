@@ -3,7 +3,7 @@ import LoadingPage from "@/elements/LoadingPage/LoadingPage";
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 
-// Generate metadata for individual posts
+// Only generateMetadata is async
 export async function generateMetadata({ params }: { params: { post: string } }): Promise<Metadata> {
   const postId = params.post;
   
@@ -44,9 +44,9 @@ export async function generateMetadata({ params }: { params: { post: string } })
   }
 }
 
-export default function Post({ params }: { params: { post: string } }) {
+export default function Page({ params }: { params: { post: string } }) {
   const myPostId = params.post;
-  const loading =(<LoadingPage/>)
+  const loading = (<LoadingPage />);
   return (
     <div>
       <Suspense fallback={loading}>
