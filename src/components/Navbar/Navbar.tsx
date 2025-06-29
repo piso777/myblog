@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Logo from "@/elements/logo/logo";
-import NavLinks from "@/elements/NavLinks/NavLinks";
-import { NavLinksData } from "@/elements/NavLinks/data";
+import Logo from "../../elements/logo/logo";
+import NavLinks from "../../elements/NavLinks/NavLinks";
+import { NavLinksData } from "../../elements/NavLinks/data";
 import Link from "next/link";
 
 const Navbar = () => {

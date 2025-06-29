@@ -1,5 +1,4 @@
-import Poster from "@/elements/Poster/Poster";
-import RecentPosts from "@/app/(dynamic)/blog/[RecentPosts]/RecentPosts";
+import Poster from "../elements/Poster/Poster";
 import BlogPage from "./(dynamic)/blog/page";
 import type { Metadata } from "next";
 
@@ -22,8 +21,7 @@ export default function Home() {
   return (
       <>
       <Poster/>
-      <RecentPosts/>
-      <BlogPage searchParams={{}}/>
+      <BlogPage/>
       </>
   );
 }

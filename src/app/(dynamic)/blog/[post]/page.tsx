@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PostDetails from "@/components/PostDetails/PostDetails";
+import PostDetails from "../../../../components/PostDetails/PostDetails";
 
 export async function generateMetadata(
   { params }: { params: { post: string } }

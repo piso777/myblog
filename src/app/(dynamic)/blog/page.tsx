@@ -1,5 +1,5 @@
 import RecentPosts from "./[RecentPosts]/RecentPosts";
-import AllPosts from "@/components/AllPosts/AllPosts";
+import AllPosts from "../../../components/AllPosts/AllPosts";
 
 interface Post {
   id: number;
