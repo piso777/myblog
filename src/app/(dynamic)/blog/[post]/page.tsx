@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: { post: string } })
   }
 }
 
-export default async function Post({ params }: { params: { post: string } }) {
+export default function Post({ params }: { params: { post: string } }) {
   const myPostId = params.post;
   const loading =(<LoadingPage/>)
   return (
