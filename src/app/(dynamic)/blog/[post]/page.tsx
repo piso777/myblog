@@ -1,10 +1,15 @@
+import { type Metadata } from "next";
 import React, { Suspense } from "react";
-import type { Metadata } from "next";
 import PostDetails from "@/components/PostDetails/PostDetails";
 import LoadingPage from "@/elements/LoadingPage/LoadingPage";
 
-// ===== Metadata Generator =====
-export async function generateMetadata({ params }: { params: { post: string } }): Promise<Metadata> {
+type PageProps = {
+  params: {
+    post: string;
+  };
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const postId = params.post;
 
   try {
@@ -41,8 +46,7 @@ export async function generateMetadata({ params }: { params: { post: string } })
   }
 }
 
-// ===== Page Component =====
-export default function PostPage({ params }: { params: { post: string } }) {
+export default function PostPage({ params }: PageProps) {
   const postId = Number(params.post);
 
   return (
