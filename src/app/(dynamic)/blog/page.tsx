@@ -1,5 +1,21 @@
 import AllPosts from "@/components/AllPosts/AllPosts";
 import RecentPosts from "./[RecentPosts]/RecentPosts";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Explore all blog posts on MyBlog. Browse through our collection of articles, stories, and insights. Find interesting content and discover new perspectives.",
+  keywords: ["blog", "articles", "posts", "content", "reading", "blog posts"],
+  openGraph: {
+    title: "Blog - MyBlog",
+    description: "Explore all blog posts and articles on MyBlog.",
+    url: 'https://myblog.vercel.app/blog',
+  },
+  twitter: {
+    title: "Blog - MyBlog",
+    description: "Explore all blog posts and articles on MyBlog.",
+  },
+};
 
 interface Post {
     id: number;

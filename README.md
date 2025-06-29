@@ -221,3 +221,7 @@ If you have any questions or need help:
 **Made with ❤️ by [Abbass Khalid]**
 
 ⭐ **Star this repository if you found it helpful!**
+
+# إعداد Git config
+git config --global user.name "Abbass Khalid"
+git config --global user.email "abbasskhalid777@gmail.com"
