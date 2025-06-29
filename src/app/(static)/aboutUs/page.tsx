@@ -65,7 +65,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-export function generateMetadata({ params }: { params: { post: string } }): Promise<Metadata> {
-  // Implementation of generateMetadata function
-}
