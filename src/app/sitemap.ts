@@ -1,8 +1,14 @@
 import { MetadataRoute } from 'next'
 
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all posts to include in sitemap
-  let posts = []
+  let posts: Post[] = []
   try {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     if (response.ok) {
@@ -35,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Dynamic post pages
-  const postPages = posts.map((post: any) => ({
+  const postPages = posts.map((post: Post) => ({
     url: `https://myblog.vercel.app/blog/${post.id}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,

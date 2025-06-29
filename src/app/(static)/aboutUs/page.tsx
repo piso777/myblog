@@ -30,7 +30,7 @@ const AboutUs = () => {
           
           <h2 className="text-2xl md:text-3xl font-bold mb-6">What We Do</h2>
           <p className="text-lg md:text-xl mb-8 leading-relaxed">
-            We've built a responsive blog application using cutting-edge technologies like Next.js 14, TypeScript, 
+            We&apos;ve built a responsive blog application using cutting-edge technologies like Next.js 14, TypeScript, 
             and Tailwind CSS. Our platform offers a beautiful user experience across all devices, from mobile phones 
             to desktop computers.
           </p>
