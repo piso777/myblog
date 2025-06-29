@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import PostDetails from "@/components/PostDetails/PostDetails";
-type PageProps = {
-  params: {
-    post: string;
-  };
-};
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { post: string } }
+): Promise<Metadata> {
   const postId = params.post;
   try {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
@@ -42,6 +39,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 }
+
+type PageProps = {
+  params: {
+    post: string;
+  };
+};
 
 export default function Page({ params }: PageProps) {
   const postId = Number(params.post);
